@@ -12,4 +12,8 @@ class ArticlesController < ApplicationController
     # controller instance variables can be accessed by teh view
     @articles = Article.all
   end
+
+  def show
+    @article = Article.find(params[:id])
+  end
 end
