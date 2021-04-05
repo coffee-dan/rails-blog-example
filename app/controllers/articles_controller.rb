@@ -16,4 +16,29 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  def new
+    # instantiates a new article but does not save it
+    #   use in the view for building the form
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+
+    # redirect_to is used when a fresh request is needed, such as
+    # after a database change. otherwise render can be used
+    if @article.save
+      redirect_to @article
+    else 
+      # render the new article view, now with errors explaining why the creation failed
+      render :new
+    end
+  end
+
+  private
+    def article_params
+      # specific requirements for params hash, kinda like strong typing
+      params.require(:article).permit(:title, :body)
+    end
 end

@@ -8,9 +8,10 @@
 	<%# accessing instance variable defined in controller %>
 	<% @articles.each do |article| %>
 		<li>
-			<a href="/articles/<%= article.id %>">
-				<%= article.title %>
-			</a>
+			<%= link_to article.title, article %>
 		</li>
 	<% end %>
 </ul>
+
+<%# unsure how "new_article_path" works %>
+<%= link_to "New Article", new_article_path %>
