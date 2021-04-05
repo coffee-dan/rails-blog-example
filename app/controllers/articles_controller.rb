@@ -7,5 +7,9 @@ class ArticlesController < ApplicationController
     # an HTTP response), Rails will automatically render a view that matches
     # the name of the controller and action. 
     # thus app/views/articles/index.html.erb
+
+    # defined controller to fetch all articles from database
+    # controller instance variables can be accessed by teh view
+    @articles = Article.all
   end
 end

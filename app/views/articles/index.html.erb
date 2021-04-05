@@ -1,1 +1,14 @@
-<h1>Hello, World!</h1>
+<h1>Articles</h1>
+
+<%# mixture of html and erb, a template system that evaluates ruby code %>
+<%# that without the equal sign meaning evulate the code %>
+<%# that with the equal sign meaning evaluate and return the ouput %>
+
+<ul>
+	<%# accessing instance variable defined in controller %>
+	<% @articles.each do |article| %>
+		<li>
+			<%= article.title %>
+		</li>
+	<% end %>
+</ul>
