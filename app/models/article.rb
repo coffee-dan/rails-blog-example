@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+	# one-to-many
+	has_many :comments
 	# used to validate user input before creating new Article
 	validates :title, presence: true
 	validates :body, presence: true, length: { minimum: 10 }

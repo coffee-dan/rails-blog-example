@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # routes method that maps all of the conventional CRUD routes for a 
   # collection of resources, such as articles. several GETs and a POST,
   # PATCH, and DELETE
-  resources :articles
+  resources :articles do
+    # nested resource, comments exist "under" articles
+    resources :comments
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
