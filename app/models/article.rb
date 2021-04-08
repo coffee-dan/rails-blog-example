@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+	include Visible
 	# one-to-many
 	has_many :comments
 	# used to validate user input before creating new Article

@@ -4,12 +4,17 @@
 <%# that without the equal sign meaning evulate the code %>
 <%# that with the equal sign meaning evaluate and return the ouput %>
 
+Our blog has <%= Article.public_count %> articles and counting!
+
 <ul>
 	<%# accessing instance variable defined in controller %>
 	<% @articles.each do |article| %>
-		<li>
-			<%= link_to article.title, article %>
-		</li>
+		<%# only display if not archived %>
+		<% unless article.archived? %>
+			<li>
+				<%= link_to article.title, article %>
+			</li>
+		<% end %>
 	<% end %>
 </ul>
 

@@ -63,6 +63,6 @@ class ArticlesController < ApplicationController
   private
     def article_params
       # specific requirements for params hash, kinda like strong typing
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :status)
     end
 end
