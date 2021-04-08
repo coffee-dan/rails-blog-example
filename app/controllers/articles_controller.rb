@@ -14,7 +14,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    # expects id, loads in article if id is valid
     @article = Article.find(params[:id])
+    # unsure how this affects rendering, who is reading this value?
+    #   by default it is app/views/articles/show.html.erb
   end
 
   def new
@@ -33,6 +36,20 @@ class ArticlesController < ApplicationController
     else 
       # render the new article view, now with errors explaining why the creation failed
       render :new
+    end
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(param[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else 
+      render :edit
     end
   end
 
