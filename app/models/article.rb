@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
 	include Visible
 	# one-to-many
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	# used to validate user input before creating new Article
 	validates :title, presence: true
 	validates :body, presence: true, length: { minimum: 10 }
