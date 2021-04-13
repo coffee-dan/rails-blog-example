@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	http_basic_authenticate_with name: "webmaster", password: "secret", only: :destroy
+
 	def create
 		# comments is nested resource so it must keep track of
 		# its associated article at all steps

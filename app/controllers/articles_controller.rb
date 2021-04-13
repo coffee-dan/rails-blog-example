@@ -2,6 +2,9 @@
 # $ ruby .\bin\rails generate controller Articles index --skip-routes
 # the flag at the end because an initial route was set up manually
 class ArticlesController < ApplicationController
+  # login info stored here temporarily, just for example
+  http_basic_authenticate_with name: "webmaster", password: "secret", except: [:index, :show]
+
   def index
     # When an action does not explictly render a view (or otherwise trigger
     # an HTTP response), Rails will automatically render a view that matches
